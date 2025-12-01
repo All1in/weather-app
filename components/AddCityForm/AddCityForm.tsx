@@ -18,7 +18,6 @@ export function AddCityForm() {
 
     const normalizedName = cityName.trim();
     
-    // Check if city already exists
     if (cities.some(city => city.name.toLowerCase() === normalizedName.toLowerCase())) {
       alert('This city is already in your list!');
       return;
@@ -29,7 +28,6 @@ export function AddCityForm() {
       await addCity(normalizedName);
       setCityName('');
     } catch (error) {
-      // Error is handled by the store
     } finally {
       setIsSubmitting(false);
     }

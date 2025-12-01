@@ -31,6 +31,7 @@ export function WeatherInfo({ city, weatherData }: WeatherInfoProps) {
               weather.description.slice(1)}
           </p>
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={iconUrl} alt={weather.description} className={styles.icon} />
       </div>
 

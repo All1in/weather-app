@@ -53,6 +53,7 @@ export function CityCard({ city }: CityCardProps) {
 
       <div className={styles.content}>
         <div className={styles.weatherMain}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={iconUrl} alt={weather.description} className={styles.icon} />
           <div className={styles.temperature}>
             <span className={styles.tempValue}>

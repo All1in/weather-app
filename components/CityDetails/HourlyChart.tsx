@@ -29,7 +29,6 @@ export function HourlyChart({
     );
   }
 
-  // Filter data for current day (next 24 hours)
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   
@@ -46,7 +45,7 @@ export function HourlyChart({
       temperature: Math.round(item.main.temp),
       fullTime: new Date(item.dt * 1000),
     }))
-    .slice(0, 8); // Show first 8 data points (24 hours in 3-hour intervals)
+    .slice(0, 8);
 
   if (chartData.length === 0) {
     return null;

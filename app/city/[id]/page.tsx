@@ -3,6 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { CityDetails } from '@/components/CityDetails';
+import { WeatherBackground } from '@/components/WeatherBackground';
 import { useCityStore } from '@/store/useCityStore';
 import { weatherApi } from '@/lib/weather-api';
 import styles from './page.module.scss';
@@ -31,6 +32,7 @@ export default function CityDetailPage() {
 
   return (
     <main className={styles.main}>
+      <WeatherBackground weatherData={city.weatherData} />
       <div className={styles.container}>
         <button className={styles.backButton} onClick={() => router.push('/')}>
           ← Back to Cities

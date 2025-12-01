@@ -1,0 +1,188 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: background 0.5s ease;
+  will-change: background-position;
+}
+
+.clear {
+  background: linear-gradient(135deg, #87ceeb 0%, #4682b4 50%, #87ceeb 100%);
+  background-size: 200% 200%;
+  animation: skyShift 10s ease infinite;
+}
+
+@keyframes skyShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.rainy {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #4a5568 100%);
+  background-size: 200% 200%;
+  animation: skyShift 8s ease infinite;
+}
+
+.snowy {
+  background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 50%, #cbd5e0 100%);
+  background-size: 200% 200%;
+  animation: skyShift 12s ease infinite;
+}
+
+.cloudy {
+  background: linear-gradient(135deg, #718096 0%, #4a5568 50%, #718096 100%);
+  background-size: 200% 200%;
+  animation: skyShift 10s ease infinite;
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(135, 206, 235, 0.8), rgba(135, 206, 235, 0.3));
+  border-radius: 0 0 2px 2px;
+  animation: rainFall linear infinite;
+  will-change: transform;
+}
+
+@keyframes rainFall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px));
+    opacity: 0.4;
+  }
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.snowflake {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+  animation: snowFall linear infinite;
+  will-change: transform;
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translateY(-50px) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 50px)) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  top: 15%;
+  animation: cloudMove 25s linear infinite;
+  box-shadow: 
+    -25px 0 0 rgba(255, 255, 255, 0.3),
+    25px 0 0 rgba(255, 255, 255, 0.3),
+    -15px -15px 0 rgba(255, 255, 255, 0.3),
+    15px -15px 0 rgba(255, 255, 255, 0.3);
+  will-change: transform;
+}
+
+.cloud::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  top: -15px;
+  left: 20px;
+}
+
+@keyframes cloudMove {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 150px));
+  }
+}
+
+.sunRays {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+}
+
+.ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255, 235, 59, 0.8), transparent);
+  transform-origin: 50% 0;
+  animation: rayRotate 4s linear infinite;
+  will-change: transform;
+}
+
+@keyframes rayRotate {
+  0% {
+    transform: rotate(0deg) translateY(-40px);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(360deg) translateY(-40px);
+    opacity: 0.6;
+  }
+}
+

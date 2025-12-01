@@ -16,7 +16,6 @@ const apiClient = axios.create({
   },
 });
 
-// Helper function to handle API errors
 const handleApiError = (error: unknown): never => {
   if (axios.isAxiosError(error)) {
     const axiosError = error as AxiosError<{ message?: string; cod?: string }>;
@@ -25,7 +24,6 @@ const handleApiError = (error: unknown): never => {
       const status = axiosError.response.status;
       const data = axiosError.response.data;
 
-      // Handle specific OpenWeatherMap API errors
       if (status === 401) {
         throw new Error(
           'Invalid API key. Please check your OpenWeatherMap API key in .env.local file.'
@@ -74,7 +72,7 @@ export const weatherApi = {
       });
       return response.data;
     } catch (error) {
-      handleApiError(error);
+      return handleApiError(error);
     }
   },
 
@@ -85,12 +83,12 @@ export const weatherApi = {
       const response = await apiClient.get<ForecastData>('/forecast', {
         params: {
           q: cityName,
-          cnt: 24, // 24 hours (3-hour intervals = 8 data points for current day)
+          cnt: 24,
         },
       });
       return response.data;
     } catch (error) {
-      handleApiError(error);
+      return handleApiError(error);
     }
   },
 };

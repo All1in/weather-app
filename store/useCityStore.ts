@@ -100,7 +100,7 @@ export const useCityStore = create<CityStore>()(
                 lastUpdated: Date.now(),
               };
             } catch {
-              return city; // Keep old data if refresh fails
+              return city;
             }
           });
 

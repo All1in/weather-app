@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom'
 
-// Mock ResizeObserver for Recharts
 global.ResizeObserver = class ResizeObserver {
   constructor(cb) {
     this.cb = cb;
@@ -10,7 +9,6 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
-// Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
