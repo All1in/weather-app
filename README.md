@@ -34,7 +34,7 @@ A modern, responsive Single Page Application (SPA) built with Next.js, React, an
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/All1in/weather-app.git
+git clone <repository-url>
 cd weather-app
 ```
 
@@ -45,7 +45,7 @@ npm install
 
 3. Create a `.env.local` file in the root directory:
 ```bash
-.env.local
+cp .env.local.example .env.local
 ```
 
 4. Add your OpenWeatherMap API key to `.env.local`:
